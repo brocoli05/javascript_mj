@@ -1,5 +1,6 @@
 import { updateGround, setupGround } from "./ground.js";
-import {} from "./dino.js";
+import { updateDino, setupDino, getDinoRect, setDinoLose } from "./dino.js";
+import { updateCactus, setupCactus, getCactusRects } from "./cactus.js";
 
 const WORLD_WIDTH = 100;
 const WORLD_HEIGHT = 30;
@@ -8,7 +9,7 @@ const SPEED_SCALE_INCREASE = 0.00001;
 // add attribute in the 'start-screen'
 const worldElem = document.querySelector("[data-world]");
 const scoreElem = document.querySelector("[data-score]");
-const startScreeenElem = document.querySelector("[data-start-screen]");
+const startScreenElem = document.querySelector("[data-start-screen]");
 
 setPixelToWorldScale();
 window.addEventListener("resize", setPixelToWorldScale);
@@ -26,13 +27,35 @@ function update(time) {
   }
   // constanct movements
   const delta = time - lastTime;
+  //console.log(delta);
 
   updateGround(delta, speedScale);
+  updateDino(delta, speedScale);
+  updateCactus(delta, speedScale);
   updateSpeedScale(delta);
   updateScore(delta);
 
+  // stop updating when losing the game
+  if (checkLose()) return handleLose();
+
   lastTime = time;
   window.requestAnimationFrame(update);
+}
+
+function checkLose() {
+  const dinoRect = getDinoRect();
+  return getCactusRects().some((rect) => isCollision(rect, dinoRect));
+  // some(): if any one thing is true, it returns true
+}
+
+// if any part is overlapped
+function isCollision(rect1, rect2) {
+  return (
+    rect1.left < rect2.right &&
+    rect1.top < rect2.bottom &&
+    rect1.right > rect2.left &&
+    rect1.bottom > rect2.top
+  );
 }
 
 function updateSpeedScale(delta) {
@@ -41,17 +64,31 @@ function updateSpeedScale(delta) {
 
 function updateScore(delta) {
   score += delta * 0.01;
-  SVGFEComponentTransferElement.text;
+  scoreElem.textContent = Math.floor(score);
 }
 
 function handleStart() {
   lastTime = null;
   speedScale = 1;
+  score = 0;
   setupGround();
-  startScreeenElem.classList.add("hide");
+  setupDino();
+  setupCactus();
+
+  // hide the text 'Press Any Key To Start' when starting the game
+  startScreenElem.classList.add("hide");
   window.requestAnimationFrame(update);
 }
 
+function handleLose() {
+  setDinoLose();
+  setTimeout(() => {
+    document.addEventListener("keydown", handleStart, { once: true });
+    startScreenElem.classList.remove("hide");
+  }, 100);
+}
+
+/* resize the world depending on the window size */
 function setPixelToWorldScale() {
   let worldToPixelScale;
   if (window.innerWidth / window.innerHeight < WORLD_WIDTH / WORLD_HEIGHT) {
