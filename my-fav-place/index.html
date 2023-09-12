@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Favourite Place</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Rowdies:wght@300&family=Tektur:wght@700&family=Ultra&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="topnav" id="myTopnav">
+        <a href="./index.html" class="active">Home</a>
+        <a href="./info.html">Info</a>
+        <a href="./reviews.html">Reviews</a>
+        <a href="./about.html">About</a>
+      </nav>
+    </header>
+    <main>
+      <div id="intro">
+        <h2>Enjoy your life with trip!</h2>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+        </p>
+      </div>
+      <section id="subscribe-form">
+        <h2>Please subscribe this page!</h2>
+        <form id="subscribe" action="https://httpbin.org/post" method="POST">
+          <input
+            type="email"
+            maxlength="50"
+            name="mail"
+            title="Search"
+            placeholder="student@myseneca.ca"
+            required
+          />
+          <input type="hidden" name="name" value="MINJI KIM" />
+          <button type="submit" name="btn">Join</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <hr />
+      &copy; MJ 2023
+    </footer>
+  </body>
+
+  <!-- Main App JavaScript File -->
+  <script src="./js/app.js"></script>
+</html>

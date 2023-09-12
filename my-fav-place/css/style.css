@@ -1,0 +1,292 @@
+html {
+  font-family: Rowdies, Tektur, Roboto, "Noto Sans", sans-serif;
+}
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+header {
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 70px;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.topnav {
+  overflow: hidden;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.618;
+  max-width: 732px;
+  margin: auto;
+  color: #4a4a4a;
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+footer {
+  font-size: 0.7rem;
+  padding-top: 70px;
+  color: #4a4a4a;
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 1rem;
+  }
+  .column {
+    width: 100%;
+  }
+  .review-card {
+    text-align: center;
+  }
+  .review-card img {
+    margin: auto;
+    float: none;
+    display: block;
+  }
+}
+
+@media (max-width: 384px) {
+  body {
+    font-size: 0.5rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  font-family: Tektur, Roboto, "Noto Sans", sans-serif;
+  font-weight: 600;
+  color: #04aa6d;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 0px;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+section,
+article {
+  padding: 15px;
+  margin-top: 0px;
+}
+
+.article {
+  text-align: center;
+}
+
+#intro {
+  background-image: url("../media/annie-spratt-qyAka7W5uMY-unsplash.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#intro,
+#subscribe-form {
+  text-align: center;
+}
+
+p {
+  margin-top: 0px;
+  margin-bottom: 1.5rem;
+  font-family: Rowdies, Roboto, "Noto Sans", sans-serif;
+  font-weight: lighter;
+  font-size: 1rem;
+}
+#reviews-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+.review-card {
+  width: 20%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 27%;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: auto;
+  margin: 10px;
+  padding: 10px;
+  display: grid;
+  min-height: 200px;
+  border-radius: 10px;
+  grid-template-rows: 20px 50px 1fr 50px;
+  transition-delay: 0.05s;
+}
+
+.review-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  background: #2d9971d6;
+  color: #f1f1f1;
+}
+
+.review-card h3:hover {
+  cursor: pointer;
+  color: #f1f1f1;
+}
+
+.review-card img {
+  border-radius: 5px 5px 0 0;
+}
+
+.card-container {
+  padding: 0px;
+  display: grid;
+}
+
+.card-container p {
+  margin: 0px;
+  font-size: 1em;
+}
+
+#add-review-form {
+  padding: 10px;
+}
+
+figure {
+  margin: 30px;
+  text-align: center;
+}
+
+img {
+  height: auto;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+input {
+  border: 1px solid #4a4a4a;
+}
+input:focus {
+  border: 1px solid #1d7484;
+}
+
+textarea {
+  width: 100%;
+}
+
+.button,
+button,
+input[type="submit"] input[type="button"] {
+  display: inline-block;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: #333;
+  color: #f9f9f9;
+  border-radius: 1px;
+  border: 1px solid #333;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.button[disabled],
+button[disabled],
+input[type="submit"][disabled],
+input[type="button"][disabled] {
+  cursor: default;
+  opacity: 0.5;
+}
+.button:focus:enabled,
+.button:hover:enabled,
+button:focus:enabled,
+button:hover:enabled,
+input[type="submit"]:focus:enabled,
+input[type="submit"]:hover:enabled,
+input[type="button"]:focus:enabled,
+input[type="button"]:hover:enabled {
+  background-color: #04aa6d;
+  border-color: #04aa6d;
+  color: #f9f9f9;
+  outline: 0;
+}
+
+textarea,
+select,
+input {
+  color: #4a4a4a;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #f1f1f1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+textarea:focus,
+select:focus,
+input:focus {
+  border: 1px solid #333;
+  outline: 0;
+}
+
+input[type="checkbox"]:focus {
+  outline: 1px dotted #333;
+}
+
+label,
+fieldset {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: #7d7c7c;
+}
+
+article p {
+  color: #7d7c7c;
+}
+
+#sims-media {
+  text-align: center;
+}
